@@ -1,0 +1,315 @@
+/* === WRAPPER UMUM === */
+.kuitansi-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* === BLOK UTAMA === */
+.kuitansi {
+  border: 1px solid #333;
+  padding: 24px;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  page-break-inside: avoid;
+}
+
+/* === MODE KHUSUS === */
+.rincian-mode {
+  padding: 32px;
+  font-size: 14px;
+  min-height: auto;
+  /* biarkan mengikuti konten */
+}
+
+/* === HEADER INSTITUSI === */
+.logo-nama {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.logo-nama img {
+  width: 80px;
+  height: auto;
+}
+
+.institusi-info p {
+  margin: 2px 0;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+/* === JUDUL UTAMA === */
+.kuitansi-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  text-decoration: underline;
+}
+
+/* === TABEL UTAMA === */
+.kuitansi-table,
+.rincian-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+}
+
+.kuitansi-table td,
+.rincian-table td {
+  padding: 4px 8px;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.kuitansi-table td:first-child {
+  width: 110px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.rincian-table .no {
+  width: 30px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.rincian-table .judul {
+  font-weight: bold;
+  padding-top: 12px;
+}
+
+.rincian-table .subitem {
+  padding-left: 40px;
+}
+
+.rincian-table .subtotal {
+  padding-left: 80px;
+  font-weight: bold;
+}
+
+.rincian-table .total-kategori {
+  padding-left: 100px;
+  font-weight: bold;
+}
+
+.rincian-table .nominal {
+  width: 150px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.rincian-table .spasi-blok {
+  height: 6px;
+}
+
+.total-merah {
+  color: red;
+  font-weight: bold;
+}
+
+/* === FOOTER & JUMLAH === */
+.align-footer,
+.footer-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.jumlah-info,
+.jumlah-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.jumlah-info {
+  margin-top: 72px;
+  align-self: flex-end;
+}
+
+.footer-block,
+.footer-left,
+.footer-right {
+  width: 45%;
+  text-align: left;
+}
+
+.footer-block p,
+.footer-right p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.footer-left p {
+  margin: 0;
+  padding-left: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* === QR & TANDA TANGAN === */
+.qr-kuitansi {
+  width: 100px;
+  height: auto;
+  margin: 6px 0;
+}
+
+.ttd-jarak {
+  height: 80px;
+  /* Sama tinggi dengan QR agar posisi tetap */
+  margin-top: 10px;
+}
+
+.nip-info {
+  font-size: 14px;
+  color: #444;
+  margin-top: 4px;
+}
+
+.tanda-nama {
+  margin-bottom: 30px;
+}
+
+.tanda-ttd {
+  margin-top: 100px;
+}
+
+.footer-block.bpjs .qr-kuitansi {
+  display: none;
+}
+
+.footer-block.bpjs .ttd-jarak {
+  display: block;
+}
+
+/* === GARIS PEMISAH === */
+.garis-pemisah {
+  border-top: 1px dashed #666;
+  margin: 20px 0;
+}
+
+/* === MODE CETAK === */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+    /* semua sisi: atas, kanan, bawah, kiri = 1 cm */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .kuitansi-wrapper {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+  }
+
+  .kuitansi {
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-inside: avoid;
+  }
+
+  .rincian-mode {
+    padding: 0 !important;
+  }
+
+  .logo-nama,
+  .institusi-info,
+  .kuitansi-title,
+  .rincian-print {
+    page-break-inside: avoid;
+    page-break-before: avoid;
+    page-break-after: avoid;
+  }
+
+  .garis-pemisah {
+    border-top: 1px dashed #999;
+    margin: 16px 0;
+  }
+
+  .rincian-print {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    white-space: pre;
+    line-height: 1.6;
+  }
+
+  .rincian-table .subitem {
+    padding-left: 40px;
+  }
+
+  .rincian-table .subtotal {
+    padding-left: 80px;
+    font-weight: bold;
+  }
+
+  .rincian-table .total-kategori {
+    padding-left: 100px;
+    font-weight: bold;
+  }
+
+  .rincian-table .nominal {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .rincian-table th {
+    border: 1px solid #000;
+    background-color: #f0f0f0;
+    padding: 6px 8px;
+    text-align: left;
+  }
+
+  .total-merah {
+    color: black;
+    font-weight: bold;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-bold {
+    font-weight: bold;
+  }
+
+  .no-border {
+    border: none !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+}

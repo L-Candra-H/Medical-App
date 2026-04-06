@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# ✅ Jangan redirect file/folder di public/assets/
+RewriteCond %{REQUEST_URI} ^/public/assets/ [NC]
+RewriteRule ^ - [L]
+
+
+# Kalau file fisik atau folder tidak ditemukan, arahkan ke index.php dengan parameter URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

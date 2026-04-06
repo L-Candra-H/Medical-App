@@ -1,0 +1,125 @@
+/* === AUTH STYLES === */
+body.login-page {
+  background-image: url('../backgrounds/auth-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === HEADER Ikon & Judul === */
+.auth-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-header-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.auth-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* === Menu Aksi: Buat Akun & Lupa Password */
+.auth-menu-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.auth-menu {
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auth-menu-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+}
+
+.auth-menu span {
+  display: block;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.auth-menu:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Link dan Captcha */
+.login-card-body a {
+  color: #007bff;
+  font-weight: bold;
+  margin: 0 5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.login-card-body a img {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.captcha-box {
+  border: 2px solid #ced4da;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  margin-bottom: 1rem;
+}
+
+/* Global form validation */
+.is-valid {
+  border-color: #28a745;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+/* === SIDEBAR FIX === */
+.sidebar {
+  min-height: calc(100vh - 57px);
+  /* Sesuaikan jika header lebih tinggi */
+  overflow-y: auto;
+  padding-bottom: 30px;
+  /* Tambahan agar tidak mentok di bawah */
+}
+
+/* Scrollbar sidebar (opsional) */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* Responsif sidebar di layar kecil */
+@media (max-width: 768px) {
+  .sidebar {
+    min-height: auto;
+    overflow-y: visible;
+  }
+}

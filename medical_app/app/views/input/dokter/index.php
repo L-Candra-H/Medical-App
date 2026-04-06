@@ -1,0 +1,122 @@
+<?php
+$isDashboard = false;
+$isCetak = false;
+include(__DIR__ . '/../../layout/header.php');
+include(__DIR__ . '/../../layout/sidebar.php');
+?>
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>Data Dokter</h1>
+  </section>
+
+  <section class="content">
+    <!-- Tombol tambah dokter -->
+    <a href="index.php?page=dokter&action=create" class="btn btn-primary mb-3">
+      <i class="fas fa-plus-circle"></i> Tambah Dokter
+    </a>
+
+    <!-- Form pencarian -->
+    <form method="get" action="index.php" class="mb-3 d-flex" id="searchForm">
+      <input type="hidden" name="page" value="dokter">
+      <input type="text" id="searchInput" name="q"
+             value="<?= htmlspecialchars($pagination['search']) ?>"
+             class="form-control me-2" placeholder="Cari dokter...">
+      <button type="submit" class="btn btn-secondary">Cari</button>
+    </form>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Spesialisasi</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tabelDokter">
+        <?php $no = $data['offset'] + 1; ?>
+        <?php foreach ($data['dokter'] as $row): ?>
+        <tr>
+          <td><?= $no++ ?></td>
+          <td><?= htmlspecialchars($row['nama_dokter']) ?></td>
+          <td><?= htmlspecialchars($row['spesialisasi']) ?></td>
+          <td>
+            <span class="badge <?= strtolower($row['status']) === 'aktif' ? 'badge-success' : 'badge-secondary' ?>">
+              <?= ucfirst($row['status']) ?>
+            </span>
+          </td>
+          <td>
+            <a href="index.php?page=dokter&action=edit&id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">
+              <i class="fas fa-edit"></i>Edit
+            </a>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+        <?php if (empty($data['dokter'])): ?>
+        <tr><td colspan="5" class="text-center text-muted">Belum ada data dokter</td></tr>
+        <?php endif; ?>
+      </tbody>
+    </table>
+
+    <!-- Pagination SELALU MUNCUL -->
+    <?php $pagination = $data['pagination']; ?>
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center"> 
+        <!-- Tombol Previous -->
+        <li class="page-item <?= $pagination['page'] <= 1 ? 'disabled' : '' ?>">
+          <a class="page-link"
+             href="index.php?page=dokter&hal=<?= max(1, $pagination['page'] - 1) ?>&q=<?= urlencode($pagination['search']) ?>">
+            « Prev
+          </a>
+        </li>
+
+        <!-- Nomor halaman -->
+        <?php for ($p = 1; $p <= $pagination['totalPage']; $p++): ?>
+          <li class="page-item <?= $p == $pagination['page'] ? 'active' : '' ?>">
+            <a class="page-link"
+               href="index.php?page=dokter&hal=<?= $p ?>&q=<?= urlencode($pagination['search']) ?>">
+              <?= $p ?>
+            </a>
+          </li>
+        <?php endfor; ?>
+
+        <!-- Tombol Next -->
+        <li class="page-item <?= $pagination['page'] >= $pagination['totalPage'] ? 'disabled' : '' ?>">
+          <a class="page-link"
+             href="index.php?page=dokter&hal=<?= min($pagination['totalPage'], $pagination['page'] + 1) ?>&q=<?= urlencode($pagination['search']) ?>">
+            Next »
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </section>
+</div>
+
+<?php 
+include(__DIR__ . '/../../layout/footer.php');
+?>
+
+<!-- ✅ AJAX Live Search minimal 2 huruf -->
+<script>
+const input = document.getElementById('searchInput');
+const tbody = document.getElementById('tabelDokter');
+
+let xhr;
+input.addEventListener('keyup', function() {
+  const keyword = this.value.trim();
+  if (keyword.length >= 2) {
+    if (xhr && xhr.readyState !== 4) xhr.abort();
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', 'index.php?page=dokter&action=ajax_search&q=' + encodeURIComponent(keyword), true);
+    xhr.onload = function () {
+      if (this.status === 200) {
+        tbody.innerHTML = this.responseText; // response harus hanya <tr>
+      }
+    };
+    xhr.send();
+  }
+});
+</script>

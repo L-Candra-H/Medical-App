@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ddeeff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  padding: 20px;
+  text-align: center;
+}
+
+.login-button {
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin: 8px;
+  display: inline-block;
+  width: 220px;
+}
+
+.login-primary {
+  background-color: #007bff;
+}
+
+.login-pdf {
+  background-color: #28a745;
+}
+
+.disclaimer {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-left: 5px solid #007bff;
+  margin-top: 30px;
+  max-width: 700px;
+}
+
+.disclaimer span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff3300;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.disclaimer p {
+  line-height: 1.5;
+  color: #333;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.pdf-btn-container {
+  margin-top: 20px;
+}
+
+#pdfModal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  margin: 0;
+  /* hilangkan margin */
+  padding: 0;
+  /* hilangkan padding agar iframe full */
+  box-sizing: border-box;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #007bff;
+  font-size: 20px;
+  text-align: center;
+  /* judul rata tengah */
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: calc(4cm);
+  /* geser 4 cm dari sisi kanan */
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  /* pastikan di atas iframe */
+}
