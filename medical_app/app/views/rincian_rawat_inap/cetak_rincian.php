@@ -52,7 +52,7 @@ printf("%-45s%15s\n","    a. PHOTOTERAPI (" . $data['phototerapi_seri'] . " Seri
 printf("%-45s%15s\n","    b. SUCTION", 'Rp. ' . number_format($data['biaya_suction'], 0, ',', '.'));
 printf("%-45s%15s\n","    c. SYRINGE PUMP", 'Rp. ' . number_format($data['biaya_syringe'], 0, ',', '.'));
 printf("%-45s%15s\n","    d. INCUBATOR (" . $data['incubator_kali'] . "  Kali)", 'Rp. ' . number_format($data['incubator_biaya'], 0, ',', '.'));
-printf("%-45s%22s\n","    e. NEBULIZER  (" . $data['nebulizer_kali'] . "  Kali)", '<u>Rp. ' . number_format($data['nebulizer_biaya'], 0, ',', '.'). '</u>');
+printf("%-45s%15s\n","    e. NEBULIZER  (" . $data['nebulizer_kali'] . "  Kali)", 'Rp. ' . number_format($data['nebulizer_biaya'], 0, ',', '.'));
 printf("%-45s%15s\n","    f. " . $data['nama_tindakan_1'], 'Rp. ' . number_format($data['tindakan_lain_1'], 0, ',', '.'));
 printf("%-45s%22s\n","    g. " . $data['nama_tindakan_2'], '<u>Rp. ' . number_format($data['tindakan_lain_2'], 0, ',', '.'). '</u>');
 printf("%-45s%50s\n", "    Total SEWA ALAT", 'Rp. ' . number_format($data['total_tindakan'], 0, ',', '.'));
@@ -63,7 +63,7 @@ printf("%-45s%15s\n","    a. " . $data['laboratorium_1_nama'], 'Rp. ' . number_f
 printf("%-45s%22s\n","    b. " . $data['laboratorium_2_nama'], '<u>Rp. ' . number_format($data['jumlah_lab_2'], 0, ',', '.'). '</u>');
 printf("%-45s%50s\n", "    Total LABORATORIUM", 'Rp. ' . number_format($data['total_laboratorium'], 0, ',', '.'));
 echo "10. KAMAR / AKOMODASI\n";
-printf("%-45s%30s\n","    PERAWATAN IBU (" . $data['ibu_mulai'] . " s/d " . $data['ibu_selesai'] . ")", 'Rp. ' . number_format($data['ibu_total'], 0, ',', '.'));
+printf("%-45s%30s\n","    PERAWATAN IBU  (" . $data['ibu_mulai'] . " s/d " . $data['ibu_selesai'] . ")", 'Rp. ' . number_format($data['ibu_total'], 0, ',', '.'));
 printf("%-45s%30s\n","    PERAWATAN BAYI (" . $data['bayi_mulai'] . " s/d " . $data['bayi_selesai'] . ")", 'Rp. ' . number_format($data['bayi_total'], 0, ',', '.'));
 printf("%-45s%30s\n","    PERAWATAN ANAK (" . $data['anak_mulai'] . " s/d " . $data['anak_selesai'] . ")", 'Rp. ' . number_format($data['anak_total'], 0, ',', '.'));
 printf("%-45s%30s\n","    KAMAR BERSALIN", 'Rp. ' . number_format($data['total_bersalin'], 0, ',', '.'));
