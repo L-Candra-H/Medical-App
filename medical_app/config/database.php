@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $user = 'root';
-$password = ''; // isi jika pakai password
+$password = 'xxx'; // isi jika pakai password
 $database = 'medical_app';
 
 $conn = new mysqli($host, $user, $password, $database);
